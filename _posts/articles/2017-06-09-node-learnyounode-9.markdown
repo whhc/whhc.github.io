@@ -3,6 +3,7 @@ layout:  post
 title: "Learnyounode #9 Juggling async"
 date: 2017-06-09 20:40:00 +0800
 categories: articles
+excerpt: "Learn node by learnyounode, not really usefull for guys had know somethings about Node."
 tags: Node.js
 ---
 

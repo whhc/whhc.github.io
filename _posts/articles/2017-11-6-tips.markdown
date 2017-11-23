@@ -3,6 +3,7 @@ layout:  post
 title: "tips"
 date: 2017-11-06 10:40:00 +0800
 categories: articles
+excerpt: "Some tips shoud be stored"
 tags: Node.js
 ---
 ### 清除缓存

@@ -2,6 +2,7 @@
 layout: post
 title:  "RxJS"
 date:   2017-11-03 22:27:00 +0800
+excerpt: "Powerfull JS"
 categories: articles
 tags: RxJS
 ---

@@ -2,6 +2,7 @@
 layout:  post
 title: "Note:Algorithms, Part I"
 date: 2017-11-21 20:24:00 +0800
+excerpt: "A class on couresa"
 categories: blog
 tags: algorithms
 ---

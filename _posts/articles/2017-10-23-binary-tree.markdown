@@ -3,7 +3,8 @@ layout: post
 title:  "Binary Tree 1"
 date:   2017-10-23 22:27:00 +0800
 categories: articles
-tags: BinaryTree, Algorithms
+excerpt: "Learn base algorithms"
+tags: algorithms
 ---
 
 ### 列表表示

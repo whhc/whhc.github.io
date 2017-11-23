@@ -2,6 +2,7 @@
 layout:  post
 title: "Learnyounode #1 ~ #8's code"
 date: 2017-06-11 21:45:00 +0800
+excerpt: "Learn node by learnyounode, not really usefull for guys had know somethings about Node."
 categories: articles
 tags: Node.js
 ---

@@ -1,7 +1,8 @@
 ---
 layout: post
-title:  "Use ESLint in Atom"
+title:  "Use ESLint on Atom"
 date:   2017-06-20 22:36:00 +0800
+excerpt: "How to use eslint on Atom"
 categories: articles
 tags: Atom Node.js
 ---

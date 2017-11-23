@@ -2,6 +2,7 @@
 layout:  post
 title: "Programming languages(coursera)"
 date: 2017-11-18 20:40:00 +0800
+excerpt: "Awesome class"
 categories: blog
 tags: other
 ---

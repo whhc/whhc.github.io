@@ -2,6 +2,7 @@
 layout: post
 title: "learn angular on coursera"
 date: 2017-11-13 23:00:00
+excerpt: "Angular hero"
 categories: articles
 tags: angular
 ---

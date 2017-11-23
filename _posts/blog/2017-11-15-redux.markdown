@@ -3,6 +3,7 @@ layout: post
 title: "Redux Note"
 date: 2017-11-15 21:20:00 +800
 categories: blog
+excerpt: "How to control state by redux"
 tags: redux
 ---
 
