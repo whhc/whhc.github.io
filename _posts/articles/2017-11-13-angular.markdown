@@ -1,0 +1,250 @@
+---
+layout: post
+title: "learn angular on coursera"
+date: 2017-11-13 23:00:00
+categories: articles
+tags: angular
+---
+
+[Code](https://github.com/whhc/ng-coursera)
+
+#### full-stack web development
+
+
+Just wanna us know that how hard to be a full-stack web development -- too many things should to know. But still let us to believe that we have a way to make it. 
+
+#### git
+
+basic operator like:  
+
+- `git init` -- init a git project  
+
+- `git status` -- show status about changes
+
+- `git add`  -- add changes / add file(s)/folder(s) to  staging area  
+
+- `git commit -m <something>`  commit this modify
+
+- and so on ...
+
+I use github to store my project, It has a desktop to do somethings like these.
+
+#### @angular/material hammerjs @angular/flex-layout
+
+- `yarn add @angular/material @angular/cdk`  
+
+- `yarn add angular/material2-builds angular/cdk-builds`  
+
+current version : **5.0.0-rc0**  
+
+add link in `index.html`:  
+```html
+<link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+```
+
+- `yarn add hammerjs`  -- @hammerjs@2.0.8   
+
+- `yarn add @angular/flex-layout` -- @angular/flex-layout@2.0.0-beta.10-4905443    
+
+then update `app.module.ts`  
+```typescript
+import { BrowserModule } from '@angular/platform-browser';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { NgModule } from '@angular/core';
+import { FormsModule } from '@angular/forms';
+import { HttpModule } from '@angular/http';
+import {
+  MatButtonModule,
+  MatCheckboxModule,
+  MatDatepickerModule,
+  MatFormFieldModule,
+  MatInputModule,
+  MatRadioModule,
+  MatSelectModule,
+  MatSliderModule,
+  MatSlideToggleModule,
+  MatToolbarModule,
+  MatListModule,
+  MatGridListModule,
+  MatCardModule,
+  MatIconModule,
+  MatProgressSpinnerModule,
+  MatDialogModule
+ } from '@angular/material';
+import { FlexLayoutModule } from '@angular/flex-layout';
+
+import 'hammerjs';
+
+import { AppComponent } from './app.component';
+
+@NgModule({
+  declarations: [
+    AppComponent
+  ],
+  imports: [
+    BrowserModule,
+    BrowserAnimationsModule,
+    FormsModule,
+    HttpModule,
+    MatButtonModule,
+    MatCheckboxModule,
+    MatDatepickerModule,
+    MatFormFieldModule,
+    MatInputModule,
+    MatRadioModule,
+    MatSelectModule,
+    MatSliderModule,
+    MatSlideToggleModule,
+    MatToolbarModule,
+    MatListModule,
+    MatGridListModule,
+    MatCardModule,
+    MatIconModule,
+    MatProgressSpinnerModule,
+    MatDialogModule,
+    FlexLayoutModule
+  ],
+  providers: [],
+  bootstrap: [AppComponent]
+})
+export class AppModule { }
+```
+
+### **Structural Directives** 
+
+#### **Directives**
+
+- Angular templates are dynamic  
+
+- Directives give instructions to Angular on how to render the templates to the DOM  
+
+- A Directive can be defined in Angular as a class with the `@Directive` decorator  
+
+- A component is a special kind of directive with a template associated to it  
+
+- Two other kinds of directives in Angular: Structural and Attribute  
+
+
+#### Structural Directive
+
+- Allow you to alter the layout by adding, removing and replacing elements in DOM  
+
+- Apply a structrual directive to a host element in the DOM an its descendents  
+
+#### Common Structural Directives
+
+- NgIf  
+
+```html
+  <div *ngIf="selectedDish">...</div>
+```
+
+- NgFor  
+
+```html
+  <mat-list-item *ngFor="let dish in dishes">...</mat-list-item>
+```  
+
+### **Services**  
+
+**Component classes should be kept lean:**  
+
+  - Fetching data from server, user input validation and logging should be delegated to a service  
+
+  - Mainly act as a mediator between the view and application logic  
+
+#### Related Concepts  
+
+- Dependency Injection  
+
+- Promises  
+
+- Reactive Javascript  
+
+#### What is Dependency Injection (DI)?  
+
+- Software design pattern that implements inversion of control for resolving dependencies  
+
+  - Dependency: An object can be used (a service)  
+
+  - Injection: Passing of a dependency to a dependent object so that it can use it. The client does not need to build the object.  
+
+  > Coined by *Martin Fowler* in 2004  
+
+#### Dependency  
+
+- Three ways for a component to get hold of its dependencies:  
+
+  - Create dependency using new operator  
+
+  - Look up dependency using a global variable  
+
+  - Hava dependency passed to it where needed  
+
+- Thired option is most flexible  
+
+  - Hard coding of denpendency avoided  
+
+  - Testing becomes fesible  
+
+#### Dependency Injection  
+
+- DI involves four roles:  
+  
+  - The service  
+
+  - The client  
+
+  - The interfaces  
+
+  - The injector  
+
+#### Angular and DI  
+
+- Seperation of business logic and dependency construction  
+
+- The dependency is passed to the object consuming it where it is needed  
+
+- Angular injector subsystem is responsible for:  
+
+  - creating components  
+
+  - resolving their dependencies, and  
+
+  - providing them to other components  
+
+-----------
+
+- Exercise(Angular service Basics)  
+
+use angular-cli with `ng g service services/dish`  
+
+-----------
+
+#### Recources  
+
+- [Software design pattern](https://en.wikipedia.org/wiki/Software_design_pattern)  
+
+- [Model-view-controller](https://en.wikipedia.org/wiki/Model%E2%80%93view%E2%80%93controller)  
+
+- [Model-View-ViewModel](https://en.wikipedia.org/wiki/Model%E2%80%93view%E2%80%93viewmodel)  
+
+- [Model-View-Whatever](https://www.beyondjava.net/blog/model-view-whatever/)  
+
+- [Design Patterns:Elements of Resuable Object-Oriented Software](http://wiki.c2.com/?DesignPatternsBook)  
+
+- [Web Application](https://en.wikipedia.org/wiki/Web_application)  
+
+- [Dependency injection(Wikipedia)](https://en.wikipedia.org/wiki/Dependency_injection)  
+
+### Data Binding Summary  
+
+| Data direction                          | Syntax                                                         | Type                                         | Example                                                      |
+| :-------------------------------------- | :------------------------------------------------------------- | :------------------------------------------- | :----------------------------------------------------------- |
+| One-way from data source to view target | {{expressiong}} <br> [target]="expression" <br> bind-target="expression" | Interpolation Property Attribute Class Style | {{dish.name}} <br> [dish]="selectedDish" <br> bind-dish="selectedDish" |
+| One-way from view target to data source | (target)="statement" <br> on-target="statement"                     | Event                                        | (click)="onSelect(dish)" <br> on-click="onSelect(dish)"           |
+| Two-way                                 | [(target)]="expression" bindon-target="expression"             | Two-way                                      | [(ngModel)]="dish.name"                                      |  
+
+[Check This](https://www.webpagefx.com/tools/emoji-cheat-sheet/) to use emoji   
+
+

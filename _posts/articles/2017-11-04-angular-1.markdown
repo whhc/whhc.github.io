@@ -1,0 +1,8 @@
+---
+layout:  post
+title: "angular service"
+date: 2017-11-04 22:40:00 +0800
+categories: articles
+tags: Angular
+---
+

@@ -1,0 +1,13 @@
+---
+layout: post
+title: "About avr"
+date: 2017-11-12 02:33:00 +800
+categories: articles
+tags: other
+---
+
+- `Angular`在构建阶段要求最高,`Vue`其次,`React`可定制型目前看来是最高的
+- 论上手难度,重点在于理解思想,`Angular`大量使用`Rxjs`,要掌握的话前置知识要求比较高,`Vue`反倒是`Vuex`更好理解一些,`React`目前进度还没看到状态管理,不清楚
+- 文档`Angular`更完善,不明白为什么这么多人说`Vue`的文档写得好，也许是因为中文出得早
+- 考虑到质量,`Angular`的资源比较满意,`Vue`一般,`React`刚开始上手,还没有明显进展,不评价
+- `React`的`state`更新与事件处理,在不用`Redux`的情况下与`Vue`一样  

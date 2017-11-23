@@ -1,0 +1,114 @@
+---
+layout: post
+title: "C base"
+date: 2017-11-22 21:30:00
+categories: blog
+tags: C
+---
+
+> Why  
+
+多数数据结构和算法描述都是用C系语言.对于我而言,作为辅助理解算法的工具,C能够扩大参考资料的选择范围.
+
+
+> How
+
+- 数据成分
+
+- 运算成分  
+
+- 控制成分  
+
+- 传输成分  
+
+### C语言的数据成分  
+
+***Syntax***
+
+| 变量类型 | 变量标识符       |
+| -------- | ---------------- |
+| int      | Max;             |
+| int      | Max = 0;         |
+| char     | character;       |
+| char     | character = 'A'; |
+| double   | Result = 12.345; |
+
+#### 整型(int)
+
+基本型: int[32bit]; 短整型: short(short int)[16bit]; 长整型: long(long int)[32bit];
+
+***补码*** 
+
+对于+int的二进制值,取反+1,即得到-int的补码
+
+通常用十六进制来展示二进制(更易读):
+
+```c++
+#include <iostream>
+using namespace std;
+int main()
+{
+  int a = -123;
+  cout << hex << a << endl;
+  return 0;
+}
+// 或者8进制
+// count << oct << a << endl;
+// 10进制:
+// count << dec << a << endl;
+```
+
+#### 浮点型(float)
+
+| 浮点型      | 长度  | 有效位 | 范围         |
+| ----------- | ----- | ------ | ------------ |
+| float       | 32bit | 7      | +-3.4*10^38  |
+| double      | 64bit | 15     | +-1.7*10^308 |
+| long double | 64bit | 15     | +-1.7*10^308 |
+
+#### 字符型(char)
+
+1个字节,可与int进行互相赋值.
+
+#### 布尔型(bool)
+
+1个字节
+
+#### 常量
+
+- 字面常量  
+
+- 符号常量  
+
+***Syntax***
+
+`const`   
+
+```c++
+#include <iostream>
+using namespace std;
+int main()
+{
+  const double PI = 3.14159;
+  float r, area;
+  cin >> r;
+  area = r * r * PI;
+  cout << "Area =" << area;
+  return 0;
+}
+```
+
+常量类型:
+
+```c++
+n = 1000L;    // 长整型
+m = -0x88abL; // 长整型十六进制常量
+k = 10000U;   // 无符号整型常量
+i = 07777LU;  // 无符号型长整型八进制常量
+
+x = 3.1415F;  // 单精度浮点型常量
+y = 3.1415L;  // 长双精度浮点型常量
+
+// 浮点型常量默认为double型;
+// U, L, F均可以小写
+```

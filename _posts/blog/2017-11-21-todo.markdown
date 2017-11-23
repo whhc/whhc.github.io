@@ -1,0 +1,18 @@
+---
+layout:  post
+title: "Human Saved Plan A"
+date: 2017-11-21 20:24:00 +0800
+categories: blog
+tags: other
+---
+
+-  [RxJS](https://www.youtube.com/watch?v=T9wOu11uU6U&list=PL55RiY5tL51pHpagYcrN9ubNLVXF8rGVi)  
+
+-  [Programming Languages](https://www.coursera.org/learn/programming-languages/home/welcome)  
+
+-  [Algorithms, Part I](https://www.coursera.org/learn/algorithms-part1/home/welcome)  
+
+-  [Front-End JavaScript Frameworks: Angular](https://www.coursera.org/learn/angular/home/welcome)  
+
+> Todo syntax can not be solved ... why?
+

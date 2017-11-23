@@ -1,0 +1,70 @@
+---
+layout: post
+title: "Redux Note"
+date: 2017-11-15 21:20:00 +800
+categories: blog
+tags: redux
+---
+
+Be simple:  
+
+```javascript
+import React, { Component } from 'react';
+
+import { combineReducers, createStore } from "redux";
+
+// reducer
+// state={} set default.
+const userReducer = (state={}, action) => {
+  switch(action.type) {
+    case 'CHANGE_NAME':
+      // state = {...state, name: action.payload}
+      // What above shoule beimutable
+      return {...state, name: action.payload}
+      break;
+    case 'CHANGE_AGE':
+      return {...state, age: action.payload}
+      break;
+  }
+  return state;
+}
+
+const tweetsReducer = (state={}, action) => {
+  return state
+}
+
+const reducers = combineReducers({
+  user: userReducer,
+  tweets: tweetsReducer
+})
+
+// store
+const store = createStore(reducers,{})
+
+// UI
+store.subscribe(() => {
+  console.log(store.getState().user)
+})
+
+class App extends Component {
+
+  changeName = () => {
+    store.dispatch({type: 'CHANGE_NAME', payload: 'S'})
+  }
+
+  changeAge = () => {
+    store.dispatch({type: 'CHANGE_AGE', payload: 23})
+  }
+
+  render() {
+    return (
+      <div>
+        <button onClick={this.changeName}>NAME</button>
+        <button onClick={this.changeAge}>AGE</button>
+      </div>
+    );
+  }
+}
+
+export default App;
+```

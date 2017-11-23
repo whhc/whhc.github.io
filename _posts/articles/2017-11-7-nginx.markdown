@@ -1,0 +1,36 @@
+---
+layout: post
+title: "nginx"
+date: 2017-11-07 22:33:00 +800
+categories: articles
+tags: Nginx
+---
+
+#### install(ubuntu)
+
+```shell
+sudo apt-get update
+sudo apt-get install nginx
+```
+
+#### start/restart/stop
+
+```shell
+sudo /etc/init.d/nginx start
+# sudo /etc/init.d/nginx restart
+# sudo /etc/init.d/nginx stop
+```
+#### config
+
+- 配置文件都在`/etc/nginx`下
+- 虚拟主机在`/etc/nginx/sites-avaliable`下
+- 启动程序在`/usr/sbin/nginx`
+- 日志在`/var/log/nginx`中，分别是`access.log`和`error.log`
+- 启动脚本`/etc/init.d/nginx`
+- <del>默认虚拟主机的目录在`/usr/share/nginx/www`</del>
+- 实际上，刚看了下，是在`/usr/share/nginx/html/`下
+
+
+
+
+

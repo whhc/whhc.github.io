@@ -1,0 +1,1128 @@
+---
+layout:  post
+title: "tips"
+date: 2017-11-06 10:40:00 +0800
+categories: articles
+tags: Node.js
+---
+### 清除缓存
+
+* #### form  
+    
+```html  
+<body onLoad="javascript:document.yourFormName.reset()">  
+```  
+  
+* #### ajax:  
+#### 1.  
+```javascript  
+  beforeSend:function(xmlHttp){  
+    xmlHttp.setRequestHeader('If-Modified-Since','0');  
+    xmlHttp.setRequestHeader('Cache-Control','no-cache');  
+  }  
+```  
+#### 2.  
+```javascript  
+  cache:false  
+```  
+* #### url  
+```javascript  
+ url = "?ran=" + Math.random();  
+ url = "?timestamp=" + new Date().getTime();  
+```  
+  
+### insertAdjacentHTML  
+  
+> Element.insertAdjacentHTML('beforeend',html-text)  
+  
+```html  
+  <!-- beforebegin -->  
+  <p>  
+    <!-- afterbegin -->  
+    contents  
+    <!-- beforeend -->  
+  </p>  
+  <!-- afterend -->  
+```  
+  
+  
+### Promise  
+  
+> promise会立即执行  
+  
+```javascript  
+// 立即执行  
+  var p = new Promise(resolve, reject){  
+    setTimeout(function(){  
+      console.log('promise!')  
+      resolve('some words!')  
+    },2000)  
+  }  
+  p.then(function(data){  
+    // do somethings  
+  })  
+/**  
+*@return promise  
+*/  
+  function controlPromise(){  
+    var p = new Promise(resolve, reject){  
+      setTimeout(function(){  
+        console.log('promise!')  
+        resolve('some words!')  
+      },2000)  
+    }  
+    return p;  
+  }  
+  controlPromise().then(function(data){  
+    // do something  
+  })  
+```  
+  
+### 范型 / 泛型 ？？  
+  
+* **编程范型** 或者 **编程范式** (Programming paradigm),是一类典型的编程风格，是指从事软件工程的一类典型的风格（可以对照方法学）。如：函数式编程、程序编程、面向对象编程、指令式编程等等为不同的编程范型;  
+* **泛型程序设计** 是程序设计语言的一种风格或范式。泛型允许程序员在强类型程序设计语言中编写代码时使用一些以后才指定的类型，在实例化时（instantiate）作为参数指明这些类型。  
+  
+  
+### 注释规范  
+  
+* 文档类  
+  
+```javascript  
+/**  
+* @ignore ============================================  
+* @fileoverview  
+* @author ggx@xx.com  
+* @version 1.0.0  
+* @ignore created in 2017-9-19  
+* @ignore ============================================  
+*/  
+```  
+  
+* 函数类  
+  
+```javascript  
+/**  
+* 数据格式化  
+* @param src {Array}  
+* @param data {Object}  
+* @ignore created  
+* @return result {Array}  
+*/  
+```  
+  
+* 常用注释关键字  
+  
+```javascript  
+/**  
+* @param 参数名 {参数类型} 描述信息  
+* @return {返回类型} 描述信息  
+* @author 作者信息 [附属信息]  
+* @version 版本号  
+* @example 示例代码  
+*/  
+```  
+  
+### es  
+  
+* `for in`遍历对象时，使用`hasOwnProperty`过滤掉原型中的属性：  
+  
+```javascript  
+  var newInfo = {};  
+  for(var key in info){  
+    if(info.hasOwnProperty(key)){  
+      newInfo[key] = info[key];  
+    }  
+  }  
+```  
+  
+* 遍历数组不用`for in`,用`for`即可;  
+  
+* 不因为性能的原因去实现数组排序功能，尽量使用`sort`方法;  
+  
+* 清空数组`.length = 0`;  
+  
+### 迭代器(Iterators) && 生成器(Generator)  
+  
+两个重要的生成器应用场景：  
+* 实现迭代功能  
+* 阻塞异步函数的调用  
+  
+#### 生成  
+```javascript  
+  function* genFunc(){...}  
+  let genObj = genFunc();  
+  
+  const genFunc = function* (){...};  
+  let genObj = genFunc();  
+  
+  let obj = {  
+    * generatorMethod() {  
+      ...  
+    }  
+  }  
+  let genObj = obj.generatorMethod();  
+  
+  class MyClass {  
+    * generatorMethod() {  
+      ...  
+    }  
+  }  
+  let myInst = new MyClass();  
+  let genObj = myInst.generatorMethod();  
+```  
+  
+#### generator role  
+  
+1. 迭代器(数据生产者)  
+  
+* 观察者(数据消费者)  
+  
+* 协同程序(数据生产者和数据消费者)  
+  
+  
+### video  
+  
+```html  
+  <video autoplay poster="posterimage.jpg">  
+    <source src="https://" type="video/ogg">  
+    <source src="https://" type="video/mp4">  
+    <source src="https://" type="video/webm">  
+    抱歉，您的浏览器不支持内嵌视频  
+  </video>  
+```  
+  
+#### js tips  
+  
+* Object clone  
+```javascript  
+// Deep Clone  
+// 1.  
+var newObj = JSON.parse(JSON.stringify(oldObj))  
+// 2.  
+function deepClone(obj) {  
+    if (obj === null || typeof obj !== 'object') {  
+        return obj;  
+    }  
+    if (obj instanceof Array) {  
+        var copy = [];  
+        for (var i = 0; i < obj.length; i++) {  
+            copy.push(obj[i]);  
+        }  
+        return copy;  
+    }  
+    if (obj instanceof Date) {  
+        var copy = new Date();  
+        copy.setTime(obj.getTime());  
+        return copy;  
+    }  
+    if (obj instanceof Object) {  
+        var copy = {};  
+        for (var key in obj) { //递归   
+            if (obj.hasOwnProperty(key)) {  
+                copy[key] = deepClone(obj[key]);  
+            }  
+        }  
+        return copy;  
+    }  
+}  
+// Swallow Clone  
+// 1.  
+var newObj = Object.assign({},oldObj)  
+// 2.  
+function shallowCopy(src){  
+  var dst = {}  
+  for (var prop in src){  
+    if (src.hasOwnProperty(prop)){  
+      dst[prop] = src[prop]  
+    }  
+  }  
+  return dst  
+}  
+```  
+  
+* js `$1 $2 $3 ... $num`  
+> js中的的`$num`存放着最近的num个正则表达式的匹配结果     
+> Tip: 除了在`replace()`的第二个参数内可以省略`RegExp`之外，其他地方使用要加上`RegExp`:     
+```javascript  
+var telNum = 13100000000  
+  
+var reg = /(13)(\d)(\d{8})/  
+console.log(telNum.replace(reg, "$1$2********"))  
+  
+if (RegExp.$2 <= 3){  
+  console.log('联通')  
+} else {  
+  console.log('移动')  
+}  
+```         
+> Tip2: 每进行一次匹配，则`$num`重新赋值     
+  
+### node  
+  
+#### http  
+  
+```html  
+//需要使用的模块 http   url  
+当前url   http://localhost:8888/select?aa=001&bb=002  
+var http = require('http');  
+var URL = require('url');  
+http.createServer(function(req, res){  
+   var arg = url.parse(req.url).query;  //方法一arg => aa=001&bb=002  
+   var arg = url.parse(req.url, true).query;  //方法二arg => { aa: '001', bb: '002' }  
+   console.log(arg.aa);//返回001  
+   console.log(arg.bb);//返回002  
+   //然后就可以根据所得到的数据处理了  
+  
+}).listen(8888);//建立服务器并监听端口  
+  
+获取特定url参数值  
+var testUrl =  'http://localhost:8888/select?aa=001&bb=002';  
+var p = URL.parse(testUrl);  
+console.log(p.href); //取到的值是：http://localhost:8888/select?aa=001&bb=002  
+console.log(p.protocol); //取到的值是：http:  
+console.log( p.hostname);//取到的值是：locahost  
+console.log(p.host);//取到的值是：localhost:8888  
+console.log(p.port);//取到的值是：8888  
+console.log(p.path);//取到的值是：/select?aa=001&bb=002  
+console.log(p.hash);//取到的值是：null  
+console.log(p.query);// 取到的值是：aa=001  
+//在此值得注意的是当语句 是 var p = URL.parse(testUrl, true) 时,p.query则返回的是如：{aa:'001'}这样的对象， 直接打印p.query则返回 [object Object]，这时我们可以这样 写： console.log(p.query.aa); //取到的值是：001  
+console.log( p.pathname);//取到的值是：/select  
+```  
+  
+### classList  
+  
+```javascript  
+function hasClass(el, className) {  
+  if (el.classList)  
+    return el.classList.contains(className)  
+  else  
+    return !!el.className.match(new RegExp('(\\s|^)' + className + '(\\s|$)'))  
+}  
+  
+function addClass(el, className) {  
+  if (el.classList)  
+    el.classList.add(className)  
+  else if (!hasClass(el, className)) el.className += " " + className  
+}  
+  
+function removeClass(el, className) {  
+  if (el.classList)  
+    el.classList.remove(className)  
+  else if (hasClass(el, className)) {  
+    var reg = new RegExp('(\\s|^)' + className + '(\\s|$)')  
+    el.className=el.className.replace(reg, ' ')  
+  }  
+}  
+```  
+  
+  
+### vue  
+在同一个页面内创建多个组件：  
+> 子组件在父组件前面       
+> 注册可以用`Vue.component('my-component',MyComponent)` #全局注册          
+或者   
+```javascript  
+// 局部组件注册  
+components: {  
+    'my-component':MyComponent  
+}  
+```  
+> 在`Vue.extend()`中，`data`和`el`必须是函数  
+  
+### js  
+  
+#### js Number  
+* `isInteger()` should be used as `Number.isInteger(parameter)`, so is `isSafeInteger()`;      
+  
+* `toExponential()` >> `let num = 123; num.toExponential();` get `1.23e+2`;     
+  
+* `toFixed()` >> `let num = 12.34567; num.toFixed(3);` get `12.346`;      
+  
+* `toPrecision()`     
+```javascript  
+var num1 = 123456;  
+var num2 = 12.3456;  
+num1.toPrecision(4) // 1.234e+5  
+num2.toPrecision(4) // 1.235  
+```  
+  
+* `Math.pow(x,y)` == `x ** y`     
+  
+#### js Object  
+  
+* `in`  >> `var obj = {'firstName': 'gao'}; 'firstName' in obj; // true`      
+  
+* `instanceof()` >> `var cars = ['Saab', 'Volvo', 'BMW']; cars instanceof Array; //true \ cars instanceof String; //false`      
+  
+* Date      
+> JavaScript counts months from 0 to 11. January is 0. December is 11.      
+  
+* `Object.keys()` `Object.getOwnPropertyNames()`      
+```javascript  
+var o = {  
+  p1: 123,  
+  p2: 345  
+}  
+var a = ['hello','world']  
+  
+Object.keys(o) //['p1','p2']  
+Object.keys(a) //['0','1']  
+Object.getOwnPropertyNames(o) //['p1','p2']  
+Object.getOwnPropertyNames(a) //['0','1','length']  
+```  
+  
+#### js String  
+  
+* `charAt()` `charCodeAt()`  
+  
+```javascript  
+var str = 'Hello';  
+  
+var res = str.charAt(0); // H  
+var res2 = str.charCodeAt(0) // 72  
+```  
+  
+* `concat()`      
+  
+```javascript  
+var str1 = "Hello ";  
+var str2 = "World!";  
+var res = str1.concat(str2); // Hello World!  
+var res2 = str1 + str2;      // Hello World!  
+```  
+  
+* `endsWith()` `startsWith()`     
+  
+* `fromCharCode()` Converts Unicode values to characters      
+  
+* `includes()`   `indexOf()`  `lastIndexOf()`  `search()`    
+```javascript  
+var str1 = 'Hello world!';  
+str1.includes('world'); // true  
+str1.indexOf('l');  // 2  
+str1.lastIndexOf('l'); // 9  
+str1.search('l'); // 2  
+```  
+  
+* `localeCompare()`      
+```javascript  
+/**  
+* @return -1,0,1 @chrome  
+*/  
+var str1 = 'ab';  
+var str2 = 'cd';  
+str1.localeCompare(str2) // -1 [str1 is sorted before str2]  
+```  
+  
+* `match()`  
+```javascript  
+/**  
+* @param String  
+* @param Reg  
+* @return Array[String]  
+*/  
+var str = "The rain in SAPIN stays mainly in the plain."  
+str.match(/ain/g)  
+```  
+  
+* `slice()` `substr()` `substring()`  
+```javascript  
+var str = 'Hello world!';  
+str.slice(1,4); // ell  
+str.substr(1,4); // ello  
+str.substring(1,4); //ell  
+```  
+  
+*  
+  
+#### js Array  
+  
+* `copyWithin()` ECMAScript 2015 (6th Edition, ECMA-262)  
+```javascript  
+  //arr.copyWithin(target[, start[, end]])  
+  [1,2,3,4,5].copyWithin(-2) //[1,2,3,1,2]  
+  [1,2,3,4,5].copyWithin(0, 3) //[4,5,3,4,5]  
+  [1,2,3,4,5].copyWithin(0, 3, 4) //[4,2,3,4,5]  
+```  
+  
+[MDN details](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/copyWithin)  
+  
+  
+* `every()` ECMA-262  <==>  `some()` ECMAScript 3  
+  
+```javascript  
+// arr.every(callback[, thisArg])   
+function isBigEnough(element, index, array){  
+  return element >= 10  
+}  
+  
+[12, 5, 8, 20].every(isBigEnough);    // false  
+[12, 5, 8, 20].every(x => x >= 10);   // false  
+[12, 54, 60, 133].every(isBigEnough); // true  
+[12, 54, 60, 133].every(x => x >= 10);// true  
+```  
+  
+* `find()` `findIndex()`      
+  
+> `find()` return the value of the first element pass a test and `findIndex()` return the index  
+  
+* `indexOf()`     
+  
+```javascript ECMAScript 3 | IE 9.0  
+var fruits = ['Banana', 'Orange', 'Apple', 'Mango'];  
+  
+var a = fruits.indexOf('Apple');  
+  
+a // 2  
+```  
+  
+* `isArray()` chrome 5 | IE 9 | firefox 4 | safari 5 | opera 10.5    
+  
+```javascript  
+Array.isArray([]) // true  
+```  
+  
+* `pop()` `shift()` <==> `push()` `unshift()`         
+  
+* `reduce()`  
+  
+```javascript  
+var numbers = [65, 44, 12 4];  
+  
+function getSum(total, num){  
+  return total + num;  
+}  
+  
+numbers.reduce(getSum);           // 125  
+numbers.reduce((x,y) => (x + y)); // 125  
+```  
+  
+* `splice()`      
+  
+> array.splice(index, howmany, item1, ....., itemX)     
+>  > The splice() method adds/removes items to/from an array, and returns the removed item(s).  
+  
+```javascript  
+var fruits = ['Banana', 'Orange', 'Apple', 'Mango'];  
+fruits.splice(2, 0, 'Lemon', 'Kiwi');  
+// fruits [Banana,Orange,Lemon,Kiwi,Apple,Mango]  
+fruits.splice(2, 4, 'Lemon', 'Kiwi');  
+// fruits [Banana,Orange,Lemon,Kiwi]  
+```  
+  
+  
+### HTML DOM  
+  
+#### DOM Document  
+  
+* `document.adoptNode()` `document.importNode()` `elelment.cloneNode()`     
+  
+* `document.domain` `location.host`     
+  
+* `document.hasFocus()`     
+  
+* `document.readyState()`  Get the loading status of the current document.  
+  * uninitialized - Has not started loading yet  
+  * loading - Is loading  
+  * loaded - Has been loaded  
+  * interactive - Has loaded enough and the user can interact with it  
+  * complete - Fully loaded  
+  
+  
+* `document.write()` `document.writeln()`     
+  
+* `document.scripts` `document.styleSheets`     
+  
+#### DOM Elements  
+  
+* `element.accessKey` Sets or returns the accesskey attribute of an element  
+```javascript  
+  document.getElementById('myAnchor').accessKey = 'w';  
+```  
+<table>  
+<tr><td>Browser</td><td>Windows</td><td>Linux</td><td>Mac</td></tr>  
+<tr><td>IE</td><td>[alt] + accessKey</td><td>N/A</td><td>N/A</td></tr>  
+<tr><td>Chrome</td><td>[alt] + accessKey</td><td>[alt] + accessKey</td><td>[control][alt] + accessKey</td></tr>  
+<tr><td>Firefox</td><td>[alt][shift] + accessKey</td><td>[alt][shift] + accessKey</td><td>[control][alt] + accessKey</td></tr>  
+<tr><td>Safari</td><td>[alt] + accessKey</td><td>N/A</td><td>[control][alt] + accessKey</td></tr>  
+<tr><td>Opera</td><td colspan='3'>[alt] + accessKey</td></tr>  
+</table>  
+  
+* `element.addEventListener()` <==> `element.removeEventListener()`       
+  
+* `focusin()` `focus()` `focusout()` `blur()`  
+  > `focusin()` and `focusout()` bubble  
+  
+* `element.childElementCount`     
+  
+* `element.childNodes` `element.children` `element.hasChildNodes()`  
+```javascript  
+var bod = document.querySelector('body');  
+bod.childNodes // [text,comment,text,div.header,text,comment,text,div.banner ...]  
+bod.children // [div.header, div.banner ...]  
+```  
+  
+* `element.classList` `element.className`     
+```javascript  
+var bo = document.querySelector('body');  
+var klass = bo.classList;  
+klass.add('add'); // <body class="add">...</body>  
+klass.contains('add') // true  
+klass.item(1) // null  
+klass.item(0) // add  
+klass.remove('add')  // undefined <body class>...</body>  
+klass.toggle('add') // true[false] <body class='add'>...</body>  
+```  
+  
+* `element.clientHeight` `element.clientWidth` `element.offsetHeight` `element.offsetWidth`...  `element.offsetParent`   `element.scrollHeight` `element.scrollWidth` `element.scrollLeft` `element.scrollTop`  
+  
+> `clientHeight`: height with padding       
+> `offsetHeight`: height width padding and border     
+> `offsetParent`: return nearest ancestor that has a position other than static  
+  
+* `element.clientLeft` `element.clientTop` `style.borderLeftWidth` `style.borderTopWidth` `style.borderBottomWidth` `style.borderRightWidth`       
+```javascript  
+var doc = document.querySelector('body');  
+doc.style.borderWidth = '2px';  
+doc.clientLeft; //2  
+doc.style.borderLeftWidth; // 2px  
+```  
+* `element.compareDocumentPosition()` Compares the document position of two elements  
+```javascript  
+node.compareDocumentPosition(node)  
+```  
+  
+* `element.contains()`      
+```javascript  
+var odiv = document.querySelector('myDiv');  
+var ospan = document.querySelector('mySpan');  
+odiv.contains(ospan) // true | false  
+```  
+  
+* `element.contentEditable` `element.isContentEditable`     
+```javascript  
+/**  
+* @param boolean [true,false,inherit]  
+*/  
+document.getElementById("myP").contentEditable = "true";   
+document.getElementById('myP').isContentEditable // true  
+```  
+  
+* `element.dir`  
+```javascript  
+/**  
+* @param String ['ltr','rtl',auto]  
+*/  
+HTMLElementObject.dir = 'ltr'  
+```  
+  
+* `element.firstChild` `element.firstElementChild`  `element.lastChild` `element.lastElementChild` `element.nextSibling` `element.nextElementSibling` `element.previousSibling` `element.previousElementSibling`      
+  
+> `firstChild` will return an element node or a text node or a comment node  
+  
+* `element.attributes` `element.getAttribute()` `element.setAttribute()` `element.getAttributeNode()` `element.setAttributeNode()` `document.createAttribute()` `element.removeAttribute()` `element.removeAttributeNode()`  
+```javascript  
+element.setAttribute(attrname, attrvalue)   
+element.getAttribute(attrname) // attrvalue  
+element.attributes // Object  
+element.getAttributeNode(attrname) // attrname = attrvalue  
+var h1 = document.getElementsByTagName("H1")[0];   // Get the first <h1> element in the document  
+var att = document.createAttribute("class");       // Create a "class" attribute  
+att.value = "democlass";                           // Set the value of the class attribute  
+h1.setAttributeNode(att);                          // Add the class attribute to <h1>  
+```  
+  
+* `element.hasAttribute()` <del>`element.hasAttributes()`</del>  
+```javascript  
+var bod = document.querySelector('#myBtn');  
+bod.hasAttribute('onclick') //true  
+document.body.hasAttributes() //false  
+```  
+* `element.insertBefore()` `element.appendChild()` `element.append()` `element.removeChild()` `element.replaceChild()` `element.prepend()`  `element.remove()`  
+```javascript  
+var insertedNode = parentNode.insertBefore(newNode, referenceNode)  
+var aChild = element.appendChild(aChild);  
+ParentNode.append((Node or DOMString)... nodes);  
+ChildNode.after((Node or DOMString)... nodes);  
+var oldChild = node.removeChild(child);  
+var replacedNode = parentNode.replaceChild(newChild, oldChild);  
+node.remove();  
+ParentNode.prepend(nodesToPrepend);  
+ChildNode.before((Node or DOMString)... nodes);  
+```  
+  
+* `element.isEqualNode()`  `element.isSameNode()`   
+```javascript  
+node.isEqualNode(other) // true | false  
+node.isSameNode(other)  // true | false  
+```  
+  
+* `element.nodeName` `element.nodeType` `element.nodeValue` `element.tagName`     
+```javascript  
+document.nodeName // #document  
+document.nodeValue // null  
+document.nodeType // 9  
+document.getElementById('myDiv').nodeName // DIV  
+document.getElementById('myDiv').nodeType // 1  
+```  
+  
+* `element.normalize()` //removes empty Text nodes, and joins adjacent Text nodes  
+  
+* `element.ownerDocument` //the owner document of a node, as a Document object  
+  
+* `element.parentNode` `element.parentElement`  
+  
+* `element.tabIndex` // represents the tab order of the current element     
+  
+* `element.textContent` `element.innerText` `element.outerText`     
+  
+> `innerText`: what's between the tags of the element.      
+> `outerText`: content of the element, including the tags.  
+  
+* `nodeList.item(n)` // === `nodeList[n]`  
+  
+  
+#### DOM Attributes  
+  
+* `attr.name` `attr.value` `attr.specified`  
+  
+> `specified`: Returns true also if the attribute has been created but not been attached to an element yet.  
+  
+* `nodemap.getNamedItem()` `nodemap.removeNamedItem()` `nodemap.setNamedItem()`     
+```javascript  
+var btn = document.getElementsByTagName("BUTTON")[0];  
+btn.attributes.getNamedItem("onclick").value; // myFunction()  
+//----------------  
+var h = document.getElementsByTagName("H1")[0];  
+var typ = document.createAttribute("class");  
+typ.value = "democlass";  
+h.attributes.setNamedItem(typ);  
+```  
+> w3school js end ###  
+  
+### JavaScript  
+  
+* 函数|Function  
+  
+> 函数内部变量提升：`var`声明的变量提升到函数体头部     
+> 函数名提升高于赋值语句提升，在赋值之前引用函数会报错        
+> 赋值函数紧跟`function `后的函数名在函数体内可用，在外部不可用,但可通过`func.name`访问          
+> `arguments`     
+  
+  
+  
+...  
+  
+### webpack Core Concepts  
+  
+#### Entry  
+> webpack.config.js       
+* Single Entry[shorthand] Syntax      
+  Usage: `entry: string|Array<string>`  
+```javascript  
+module.exports = {  
+  entry: './path/to/my/entry/file.js'  
+}  
+// is shorthand for:  
+module.exports = {  
+  entry: {  
+    main: './path/to/my/entry/file.js'  
+  }  
+}  
+```  
+* Object Syntax     
+  Usage: `entry: {[entryChuckName: string]: string|Array<string>}`      
+  * Separate App and Vendor Entries     
+> webpack.config.js  
+```javascript  
+ const config = {  
+   entry: {  
+     app: '.src/app.js',  
+     vendors: './src/vendors.js'  
+   }  
+ };  
+```  
+  
+* Multi Page Application      
+> webpack.config .js  
+```javascript  
+const config = {  
+  entry: {  
+    pageOne: './src/pageOne/index.js',  
+    pageTwo: './src/pageTwo/index.js',  
+    pageThree: './src/pageThree/index.js'  
+  }  
+}  
+```  
+  
+#### Output  
+  
+* Usage     
+  * A `filename`      
+  * An absolute `path`      
+  
+> webpack.config.js  
+```javascript  
+const path = require('path');  
+  
+module.exports = {  
+  entry: './path/to/my/entry/file.js',  
+  output: {  
+    path: path.resolve(__dirname, 'dist'),  
+    filename: 'my-first-webpack.bundle.js'  
+  }  
+}  
+```  
+  
+* Multi Entry Points      
+  
+> webpack.config.js  
+```javascript  
+{  
+  entry: {  
+    app: './src/app.js',  
+    search: './src/search.js'  
+  },  
+  output: {  
+    filename: '[name].js',  
+    path: __dirname + '/dist'  
+  }  
+}  
+```  
+  
+* Advanced      
+  
+  * using a CDN and hashes for assets:  
+  
+> config.js  
+```javascript  
+output: {  
+  path: '/home/proj/cdn/assets/[hash]',  
+  publicPath: 'http://cdn.example.com/assets/[hash]'  
+}  
+```  
+  
+  
+#### Loaders  
+  
+* Example     
+  
+```shell  
+npm install --save-dev css-loader  
+npm install --save-dev ts-loader  
+```  
+  
+> webpack.config.js  
+```javascript  
+const path = require('path');  
+  
+const config = {  
+  entry: './path/to/my/entry/file.js',  
+  output: {  
+    path: path.resolve(__dirname, 'dist'),  
+    filename: 'my-first-webpack.bundle.js'  
+  },  
+  module: {  
+    rules: [  
+      {test: /\.txt$/, use: 'raw-loader'},  
+      {test: /\.css$/, use: 'css-loader'},  
+      {test: /\.ts$/, use: 'ts-loader'}  
+    ]  
+  }  
+};  
+  
+module.exports = config;  
+```  
+* Using Loaders     
+  * Configuration(recommended): Specify them in your `webpack.config.js` file.  
+  * Inline: Specify them explicitly in each `import` statement.  
+  * CLI: Specify them with a shell command.  
+  
+* Configuration   
+  
+> webpack.config.js   
+```javascript  
+  module: {  
+    relues: [  
+      {  
+        test: /\.css$/,  
+        use: [  
+          { loader: 'style-loader' },  
+          {  
+            loader: 'css-loader',  
+            options: {  
+              modules: true  
+            }  
+          }  
+        ]  
+      }  
+    ]  
+  }  
+```  
+  
+* Inline      
+  
+```javascript  
+import Styles from 'style-loader!css-loader?modules!./style.css';  
+```  
+  
+* CLI     
+  
+```shell  
+webpack --module-bind jade-loader --module-bind 'css=style-loader!css-loader'  
+```  
+  
+#### Plugins  
+  
+* Usage  
+  Since **plugin** can take arguments/options, you must pass a `new` instance to the `plugins` property in your webpack configuration.  
+  
+* Configuration     
+  
+> webpack.config.js     
+```javascript  
+const HtmlWebpackPlugin = require('html-webpack-plugin'); //install via npm  
+const webpack = require('webpack'); // to access built-in plugin  
+const path = require('path');  
+  
+const config = {  
+  entry: './path/to/my/file.js',  
+  output: {  
+    path: path.resolve(__dirname, 'dist'),  
+    filename: 'my-first-webpack.bundle.js'  
+  },  
+  module: {  
+    rules: [  
+      {test: /\.txt$/, use: 'raw-loader'}  
+    ]  
+  },  
+  plugins: [  
+    new webpack.optimize.UglifyJsPlugin(),  
+    new HtmlWebpackPlugin({template: './src/index.html'})  
+  ]  
+}  
+  
+module.exports = config;  
+```  
+  
+#### Module Resolution  
+  
+```javascript  
+import foo from 'path/to/module'  
+// or  
+require('path/to/module')  
+```  
+  
+  
+### vue router  
+  
+> html  
+```html  
+  <div id="app">  
+    <p>  
+      <router-link to="/foo">Go to foo</router-link>  
+      <router-link to="/bar">Go to bar</router-link>  
+    </p>  
+  
+    <router-view></router-view>  
+  </div>  
+```  
+  
+> javascript  
+```javascript  
+// 0. 如果使用模块化机制编程，导入VUE和VueRouter,要调用Vue.use(VueRouter)  
+  
+// 1.定义(路由)组件  
+const Foo = {template: '<div>foo</div>'}  
+const Bar = {template: '<div>bar</div>'}  
+  
+// 2.定义路由  
+// "component"可以是通过Vue.extend()创建的组件构造器  
+// 或只是一个组件对象  
+const routes = [  
+  {path: '/foo', component: Foo},  
+  {path: '/bar', component: Bar}  
+]  
+  
+// 3.创建router实例，然后传`routes`配置  
+const router = new VueRouter({  
+  routes  //相当于 routes: router  
+})  
+  
+// 4.创建和挂载实例  
+const app = new Vue({  
+  router  
+}).$mount('#app')  
+```  
+  
+  
+#### 函数式  
+  
+- 不依赖外部变量  
+- 不改变原始参数  
+- 引用透明  
+  
+##### curry  
+  
+> 只传递给函数一部分参数来调用它，让它返回一个函数去处理剩下的参数  
+```javascript  
+// simple example:  
+var add = function(x) {  
+  return function(y) {  
+    return x + y  
+  }  
+}  
+  
+var increment = add(1)  
+var addTen = add(10)  
+  
+increment(2)  
+// 3  
+  
+addTen(2)  
+// 12  
+  
+// example 2:  
+// npm install lodash -g  
+var curry = require('lodash').curry  
+  
+var match = curry(function(what, str){  
+  return str.match(what)  
+})  
+  
+var replace = curry(function(what, replacement, str){  
+  return str.replace(what, replacement)  
+})  
+  
+var filter = curry(function(f, ary){  
+  return ary.filter(f)  
+})  
+  
+var map = curry(function(f, ary){  
+  return ary.map(f)  
+})  
+  
+// example 2 use:  
+match(/\s+/g, 'some words')  
+// [' ']  
+  
+match(/\s+/g)('some words')  
+// [' ']  
+  
+var hasSpaces = match(/\s+/g)  
+// function(x) { return x.match(/\s+/g) }  
+  
+hasSpaces('some words')  
+// [' ']  
+  
+hasSpaces('spaceless')  
+// null  
+  
+filter(hasSpaces, ['tori_spelling', 'tori amos'])  
+// ['tori amos']  
+  
+var findSpaces = filter(hasSpaces)  
+// function(xs) {return xs.filter(function(x) {return x.match(/\s+/g) })}  
+  
+findeSpaces(['tori_splling', 'tori amos'])  
+// ['tori amos']  
+  
+var noVowels = replace(/[aeiou]/ig)  
+// function(replacement, x){return x.replace(/[aeiou]/ig, replacement)}  
+  
+var censored = noVowels('*')  
+// function(x) {return x.replace(/[aeiou]/ig, '*')}  
+  
+censored("Chocolate Rain")  
+// 'Ch*c*l*t* R**n'  
+```  
+  
+- exercise  
+  
+```javascript  
+// npm install ramda -g  
+var _ = require('ramda')  
+  
+// 1.  
+// ========  
+// 通过局部调用(partial apply)移除所有参数  
+var words = function(str){  
+  return split(' ',str)  
+}  
+  
+// 1a.  
+// ========  
+// 使用`map`创建一个新的`word`函数，使之能够操作字符串数组  
+  
+var sentences = undefined;  
+  
+// 2.  
+// ========  
+// 通过局部调用(partial apply)移除所有参数  
+  
+var filterQs = function(xs) {  
+  return filter(function(x) {return match(/q/i,x)},xs)  
+}  
+  
+// 3.  
+// ========  
+// 使用帮助函数`_keepHighest`重构`max`使之成为curry函数  
+  
+// 无需改动  
+var _keepHighest = function(x, y) {return x >= y ? x : y}  
+  
+// 重构一下代码  
+var max = function(xs) {  
+  return reduce(function(acc, x){  
+    return _keepHighest(acc, x)  
+  }, -Infinity, xs)  
+}  
+  
+// bonus 1.  
+// ========  
+// 包裹数组的`slice`函数使之成为curry函数  
+// //[1,2,3].slice(0,2)  
+var slice = undefined  
+  
+// bonus 2.  
+// ========  
+// 借助`slice`定义一个`take`curry函数，该函数在调用后可以取出字符串的前n个字符  
+var take = undefined  
+  
+```   
+
+#### vim
+
+寄存器
+
+- normal模式下`q`+`a`开始录制(则寄存器名称是`a`)  
+- vscode的vim插件貌似无法录制`tab`  
+- 执行动作  
+- normal模式下`q`结束录制  
+- `@a`执行  
+
+#### Google 
+
+- `""`:完全匹配; `-`:排除; `*`:通配符;  
+
+- `inurl:`  
+
+- `inanchor:`  
+
+- `intitle:`  
+
+- `allintitle:`  
+
+- `allinurl:`  
+
+- **`filetype:`**  
+
+- `site:`  
+
+- `related:`  
+
+[知乎:如何用好谷歌搜索引擎](https://www.zhihu.com/question/20161362)  
+
+
