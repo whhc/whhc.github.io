@@ -496,8 +496,10 @@ function isBigEnough(element, index, array){
 > `find()` return the value of the first element pass a test and `findIndex()` return the index  
   
 * `indexOf()`  
-  
-```javascript ECMAScript 3 | IE 9.0  
+
+>  ECMAScript 3 | IE 9.0  
+
+```javascript   
 var fruits = ['Banana', 'Orange', 'Apple', 'Mango'];  
   
 var a = fruits.indexOf('Apple');  
@@ -745,14 +747,9 @@ h.attributes.setNamedItem(typ);
   
 ### JavaScript  
   
-* 函数|Function  
+* 函数(Function)  
   
-> 函数内部变量提升：`var`声明的变量提升到函数体头部     
-> 函数名提升高于赋值语句提升，在赋值之前引用函数会报错        
-> 赋值函数紧跟`function `后的函数名在函数体内可用，在外部不可用,但可通过`func.name`访问          
-> `arguments`     
-  
-...  
+> 函数内部变量提升：`var`声明的变量提升到函数体头部函数名提升高于赋值语句提升，在赋值之前引用函数会报错赋值函数紧跟`function `后的函数名在函数体内可用，在外部不可用,但可通过`func.name`访问`arguments`  
   
 ### webpack Core Concepts  
   
