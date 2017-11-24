@@ -248,4 +248,3 @@ use angular-cli with `ng g service services/dish`
 
 [Check This](https://www.webpagefx.com/tools/emoji-cheat-sheet/) to use emoji   
 
-

@@ -2,7 +2,7 @@
 layout:  post
 title: "Human Saved Plan A"
 date: 2017-11-21 20:24:00 +0800
-categories: blog
+categories: articles
 excerpt: "My plan"
 tags: other
 ---

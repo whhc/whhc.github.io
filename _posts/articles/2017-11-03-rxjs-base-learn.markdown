@@ -4,7 +4,7 @@ title:  "RxJS"
 date:   2017-11-03 22:27:00 +0800
 excerpt: "Powerfull JS"
 categories: articles
-tags: RxJS
+tags: rxjs
 ---
 #### 资料
 [RxJS中文版文档](http://cn.rx.js.org/)

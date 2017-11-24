@@ -4,7 +4,7 @@ title: "nginx"
 date: 2017-11-07 22:33:00 +800
 categories: articles
 excerpt: "How to use nginx"
-tags: Nginx
+tags: nginx
 ---
 
 #### install(ubuntu)

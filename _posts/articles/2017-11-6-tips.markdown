@@ -4,7 +4,7 @@ title: "tips"
 date: 2017-11-06 10:40:00 +0800
 categories: articles
 excerpt: "Some tips shoud be stored"
-tags: Node.js
+tags: other
 ---
 ### 清除缓存
 
@@ -15,18 +15,24 @@ tags: Node.js
 ```  
   
 * #### ajax:  
+
 #### 1.  
+
 ```javascript  
   beforeSend:function(xmlHttp){  
     xmlHttp.setRequestHeader('If-Modified-Since','0');  
     xmlHttp.setRequestHeader('Cache-Control','no-cache');  
   }  
 ```  
+
 #### 2.  
+
 ```javascript  
   cache:false  
 ```  
+
 * #### url  
+
 ```javascript  
  url = "?ran=" + Math.random();  
  url = "?timestamp=" + new Date().getTime();  
@@ -82,6 +88,7 @@ tags: Node.js
 ### 范型 / 泛型 ？？  
   
 * **编程范型** 或者 **编程范式** (Programming paradigm),是一类典型的编程风格，是指从事软件工程的一类典型的风格（可以对照方法学）。如：函数式编程、程序编程、面向对象编程、指令式编程等等为不同的编程范型;  
+
 * **泛型程序设计** 是程序设计语言的一种风格或范式。泛型允许程序员在强类型程序设计语言中编写代码时使用一些以后才指定的类型，在实例化时（instantiate）作为参数指明这些类型。  
   
   
@@ -146,10 +153,13 @@ tags: Node.js
 ### 迭代器(Iterators) && 生成器(Generator)  
   
 两个重要的生成器应用场景：  
+
 * 实现迭代功能  
+
 * 阻塞异步函数的调用  
   
 #### 生成  
+
 ```javascript  
   function* genFunc(){...}  
   let genObj = genFunc();  
@@ -196,6 +206,7 @@ tags: Node.js
 #### js tips  
   
 * Object clone  
+
 ```javascript  
 // Deep Clone  
 // 1.  
@@ -320,10 +331,15 @@ function removeClass(el, className) {
   
   
 ### vue  
+
 在同一个页面内创建多个组件：  
+
 > 子组件在父组件前面       
+
 > 注册可以用`Vue.component('my-component',MyComponent)` #全局注册          
+
 或者   
+
 ```javascript  
 // 局部组件注册  
 components: {  
@@ -335,6 +351,7 @@ components: {
 ### js  
   
 #### js Number  
+
 * `isInteger()` should be used as `Number.isInteger(parameter)`, so is `isSafeInteger()`;      
   
 * `toExponential()` >> `let num = 123; num.toExponential();` get `1.23e+2`;     
@@ -342,6 +359,7 @@ components: {
 * `toFixed()` >> `let num = 12.34567; num.toFixed(3);` get `12.346`;      
   
 * `toPrecision()`     
+
 ```javascript  
 var num1 = 123456;  
 var num2 = 12.3456;  
@@ -358,9 +376,11 @@ num2.toPrecision(4) // 1.235
 * `instanceof()` >> `var cars = ['Saab', 'Volvo', 'BMW']; cars instanceof Array; //true \ cars instanceof String; //false`      
   
 * Date      
+
 > JavaScript counts months from 0 to 11. January is 0. December is 11.      
   
 * `Object.keys()` `Object.getOwnPropertyNames()`      
+  
 ```javascript  
 var o = {  
   p1: 123,  
@@ -399,6 +419,7 @@ var res2 = str1 + str2;      // Hello World!
 * `fromCharCode()` Converts Unicode values to characters      
   
 * `includes()`   `indexOf()`  `lastIndexOf()`  `search()`    
+
 ```javascript  
 var str1 = 'Hello world!';  
 str1.includes('world'); // true  
@@ -407,7 +428,8 @@ str1.lastIndexOf('l'); // 9
 str1.search('l'); // 2  
 ```  
   
-* `localeCompare()`      
+* `localeCompare()`  
+
 ```javascript  
 /**  
 * @return -1,0,1 @chrome  
@@ -418,6 +440,7 @@ str1.localeCompare(str2) // -1 [str1 is sorted before str2]
 ```  
   
 * `match()`  
+
 ```javascript  
 /**  
 * @param String  
@@ -429,6 +452,7 @@ str.match(/ain/g)
 ```  
   
 * `slice()` `substr()` `substring()`  
+
 ```javascript  
 var str = 'Hello world!';  
 str.slice(1,4); // ell  
@@ -436,11 +460,10 @@ str.substr(1,4); // ello
 str.substring(1,4); //ell  
 ```  
   
-*  
-  
 #### js Array  
   
 * `copyWithin()` ECMAScript 2015 (6th Edition, ECMA-262)  
+
 ```javascript  
   //arr.copyWithin(target[, start[, end]])  
   [1,2,3,4,5].copyWithin(-2) //[1,2,3,1,2]  
@@ -465,11 +488,11 @@ function isBigEnough(element, index, array){
 [12, 54, 60, 133].every(x => x >= 10);// true  
 ```  
   
-* `find()` `findIndex()`      
+* `find()` `findIndex()`  
   
 > `find()` return the value of the first element pass a test and `findIndex()` return the index  
   
-* `indexOf()`     
+* `indexOf()`  
   
 ```javascript ECMAScript 3 | IE 9.0  
 var fruits = ['Banana', 'Orange', 'Apple', 'Mango'];  
@@ -479,13 +502,13 @@ var a = fruits.indexOf('Apple');
 a // 2  
 ```  
   
-* `isArray()` chrome 5 | IE 9 | firefox 4 | safari 5 | opera 10.5    
+* `isArray()` chrome 5 | IE 9 | firefox 4 | safari 5 | opera 10.5  
   
 ```javascript  
 Array.isArray([]) // true  
 ```  
   
-* `pop()` `shift()` <==> `push()` `unshift()`         
+* `pop()` `shift()` <==> `push()` `unshift()`  
   
 * `reduce()`  
   
@@ -500,7 +523,7 @@ numbers.reduce(getSum);           // 125
 numbers.reduce((x,y) => (x + y)); // 125  
 ```  
   
-* `splice()`      
+* `splice()`  
   
 > array.splice(index, howmany, item1, ....., itemX)     
 >  > The splice() method adds/removes items to/from an array, and returns the removed item(s).  
@@ -539,6 +562,7 @@ fruits.splice(2, 4, 'Lemon', 'Kiwi');
 #### DOM Elements  
   
 * `element.accessKey` Sets or returns the accesskey attribute of an element  
+
 ```javascript  
   document.getElementById('myAnchor').accessKey = 'w';  
 ```  
@@ -558,7 +582,8 @@ fruits.splice(2, 4, 'Lemon', 'Kiwi');
   
 * `element.childElementCount`     
   
-* `element.childNodes` `element.children` `element.hasChildNodes()`  
+* `element.childNodes` `element.children` `element.hasChildNodes()` 
+
 ```javascript  
 var bod = document.querySelector('body');  
 bod.childNodes // [text,comment,text,div.header,text,comment,text,div.banner ...]  
@@ -580,10 +605,13 @@ klass.toggle('add') // true[false] <body class='add'>...</body>
 * `element.clientHeight` `element.clientWidth` `element.offsetHeight` `element.offsetWidth`...  `element.offsetParent`   `element.scrollHeight` `element.scrollWidth` `element.scrollLeft` `element.scrollTop`  
   
 > `clientHeight`: height with padding       
+>
 > `offsetHeight`: height width padding and border     
+>
 > `offsetParent`: return nearest ancestor that has a position other than static  
   
-* `element.clientLeft` `element.clientTop` `style.borderLeftWidth` `style.borderTopWidth` `style.borderBottomWidth` `style.borderRightWidth`       
+* `element.clientLeft` `element.clientTop` `style.borderLeftWidth` `style.borderTopWidth` `style.borderBottomWidth` `style.borderRightWidth`  
+
 ```javascript  
 var doc = document.querySelector('body');  
 doc.style.borderWidth = '2px';  
@@ -595,14 +623,16 @@ doc.style.borderLeftWidth; // 2px
 node.compareDocumentPosition(node)  
 ```  
   
-* `element.contains()`      
+* `element.contains()`  
+
 ```javascript  
 var odiv = document.querySelector('myDiv');  
 var ospan = document.querySelector('mySpan');  
 odiv.contains(ospan) // true | false  
 ```  
   
-* `element.contentEditable` `element.isContentEditable`     
+* `element.contentEditable` `element.isContentEditable`  
+
 ```javascript  
 /**  
 * @param boolean [true,false,inherit]  
@@ -612,6 +642,7 @@ document.getElementById('myP').isContentEditable // true
 ```  
   
 * `element.dir`  
+
 ```javascript  
 /**  
 * @param String ['ltr','rtl',auto]  
@@ -624,6 +655,7 @@ HTMLElementObject.dir = 'ltr'
 > `firstChild` will return an element node or a text node or a comment node  
   
 * `element.attributes` `element.getAttribute()` `element.setAttribute()` `element.getAttributeNode()` `element.setAttributeNode()` `document.createAttribute()` `element.removeAttribute()` `element.removeAttributeNode()`  
+
 ```javascript  
 element.setAttribute(attrname, attrvalue)   
 element.getAttribute(attrname) // attrvalue  
@@ -636,12 +668,14 @@ h1.setAttributeNode(att);                          // Add the class attribute to
 ```  
   
 * `element.hasAttribute()` <del>`element.hasAttributes()`</del>  
+
 ```javascript  
 var bod = document.querySelector('#myBtn');  
 bod.hasAttribute('onclick') //true  
 document.body.hasAttributes() //false  
 ```  
 * `element.insertBefore()` `element.appendChild()` `element.append()` `element.removeChild()` `element.replaceChild()` `element.prepend()`  `element.remove()`  
+
 ```javascript  
 var insertedNode = parentNode.insertBefore(newNode, referenceNode)  
 var aChild = element.appendChild(aChild);  
@@ -655,12 +689,14 @@ ChildNode.before((Node or DOMString)... nodes);
 ```  
   
 * `element.isEqualNode()`  `element.isSameNode()`   
+
 ```javascript  
 node.isEqualNode(other) // true | false  
 node.isSameNode(other)  // true | false  
 ```  
   
 * `element.nodeName` `element.nodeType` `element.nodeValue` `element.tagName`     
+
 ```javascript  
 document.nodeName // #document  
 document.nodeValue // null  
@@ -692,6 +728,7 @@ document.getElementById('myDiv').nodeType // 1
 > `specified`: Returns true also if the attribute has been created but not been attached to an element yet.  
   
 * `nodemap.getNamedItem()` `nodemap.removeNamedItem()` `nodemap.setNamedItem()`     
+
 ```javascript  
 var btn = document.getElementsByTagName("BUTTON")[0];  
 btn.attributes.getNamedItem("onclick").value; // myFunction()  
@@ -712,16 +749,17 @@ h.attributes.setNamedItem(typ);
 > 赋值函数紧跟`function `后的函数名在函数体内可用，在外部不可用,但可通过`func.name`访问          
 > `arguments`     
   
-  
-  
 ...  
   
 ### webpack Core Concepts  
   
 #### Entry  
+
 > webpack.config.js       
+
 * Single Entry[shorthand] Syntax      
   Usage: `entry: string|Array<string>`  
+
 ```javascript  
 module.exports = {  
   entry: './path/to/my/entry/file.js'  
@@ -733,10 +771,14 @@ module.exports = {
   }  
 }  
 ```  
+
 * Object Syntax     
   Usage: `entry: {[entryChuckName: string]: string|Array<string>}`      
+
   * Separate App and Vendor Entries     
+
 > webpack.config.js  
+
 ```javascript  
  const config = {  
    entry: {  
@@ -747,7 +789,9 @@ module.exports = {
 ```  
   
 * Multi Page Application      
+
 > webpack.config .js  
+
 ```javascript  
 const config = {  
   entry: {  
@@ -761,10 +805,13 @@ const config = {
 #### Output  
   
 * Usage     
+
   * A `filename`      
+
   * An absolute `path`      
   
 > webpack.config.js  
+
 ```javascript  
 const path = require('path');  
   
@@ -780,6 +827,7 @@ module.exports = {
 * Multi Entry Points      
   
 > webpack.config.js  
+
 ```javascript  
 {  
   entry: {  
@@ -798,6 +846,7 @@ module.exports = {
   * using a CDN and hashes for assets:  
   
 > config.js  
+
 ```javascript  
 output: {  
   path: '/home/proj/cdn/assets/[hash]',  
@@ -816,6 +865,7 @@ npm install --save-dev ts-loader
 ```  
   
 > webpack.config.js  
+
 ```javascript  
 const path = require('path');  
   
@@ -835,15 +885,20 @@ const config = {
 };  
   
 module.exports = config;  
+
 ```  
 * Using Loaders     
+
   * Configuration(recommended): Specify them in your `webpack.config.js` file.  
+
   * Inline: Specify them explicitly in each `import` statement.  
+
   * CLI: Specify them with a shell command.  
   
 * Configuration   
   
 > webpack.config.js   
+
 ```javascript  
   module: {  
     relues: [  
@@ -878,11 +933,13 @@ webpack --module-bind jade-loader --module-bind 'css=style-loader!css-loader'
 #### Plugins  
   
 * Usage  
+
   Since **plugin** can take arguments/options, you must pass a `new` instance to the `plugins` property in your webpack configuration.  
   
 * Configuration     
   
 > webpack.config.js     
+
 ```javascript  
 const HtmlWebpackPlugin = require('html-webpack-plugin'); //install via npm  
 const webpack = require('webpack'); // to access built-in plugin  
@@ -920,6 +977,7 @@ require('path/to/module')
 ### vue router  
   
 > html  
+
 ```html  
   <div id="app">  
     <p>  
@@ -932,6 +990,7 @@ require('path/to/module')
 ```  
   
 > javascript  
+
 ```javascript  
 // 0. 如果使用模块化机制编程，导入VUE和VueRouter,要调用Vue.use(VueRouter)  
   
@@ -962,12 +1021,15 @@ const app = new Vue({
 #### 函数式  
   
 - 不依赖外部变量  
+
 - 不改变原始参数  
+
 - 引用透明  
   
 ##### curry  
   
 > 只传递给函数一部分参数来调用它，让它返回一个函数去处理剩下的参数  
+
 ```javascript  
 // simple example:  
 var add = function(x) {  
@@ -1100,8 +1162,11 @@ var take = undefined
 
 - normal模式下`q`+`a`开始录制(则寄存器名称是`a`)  
 - vscode的vim插件貌似无法录制`tab`  
+
 - 执行动作  
+
 - normal模式下`q`结束录制  
+
 - `@a`执行  
 
 #### Google 

@@ -4,7 +4,7 @@ title: "C base"
 date: 2017-11-22 21:30:00
 categories: blog
 excerpt: "Helpful to understand algorithms"
-tags: C
+tags: c
 ---
 
 > Why  
