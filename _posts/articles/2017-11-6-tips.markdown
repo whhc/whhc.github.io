@@ -254,8 +254,11 @@ function shallowCopy(src){
 ```  
   
 * js `$1 $2 $3 ... $num`  
+
 > js中的的`$num`存放着最近的num个正则表达式的匹配结果     
+
 > Tip: 除了在`replace()`的第二个参数内可以省略`RegExp`之外，其他地方使用要加上`RegExp`:     
+
 ```javascript  
 var telNum = 13100000000  
   
