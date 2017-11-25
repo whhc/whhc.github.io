@@ -246,5 +246,33 @@ use angular-cli with `ng g service services/dish`
 | One-way from view target to data source | (target)="statement" <br> on-target="statement"                     | Event                                        | (click)="onSelect(dish)" <br> on-click="onSelect(dish)"           |
 | Two-way                                 | [(target)]="expression" bindon-target="expression"             | Two-way                                      | [(ngModel)]="dish.name"                                      |  
 
-[Check This](https://www.webpagefx.com/tools/emoji-cheat-sheet/) to use emoji   
+
+### Angular Basic
+
+- Enables navigation among views  
+
+- Uses a browser URL as an instruction to navigate to a client-generated view - Can also pass along optional parameters
+
+#### HTML5 Histroy API  
+
+- Gives developers the ability to modify a website's URL without a full page refresh  
+
+  - pushState(): Add history entry  
+  - replaceState(): Modify histroy entry  
+  - Configure `<base href="/">`  
+
+#### Add a Routing Module  
+
+> `ng g module app-routing`  
+
+#### Additional Resources  
+
+[Angular Material Button](https://material.angular.io/components/component/button)  
+
+[Angular Routing and Navigation](https://angular.io/docs/ts/latest/guide/router.html)  
+
+[HTML5 History, pushState() and replaceState()](https://developer.mozilla.org/en-US/docs/Web/API/History_API#Adding_and_modifying_history_entries)  
+
+[HTML5<base>Element](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/base)  
+
 

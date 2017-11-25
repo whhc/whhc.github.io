@@ -16,6 +16,7 @@ console.log('HELLO WORLD')
 ### lesson 2 Baby Step
 
 My code:
+
 ```javascript
 function sum() {
   var arg = process.argv,
@@ -32,6 +33,7 @@ console.log(sum())
 ```
 
 Official code:
+
 ```javascript
 var result = 0
 
@@ -45,6 +47,7 @@ console.log(result)
 ### lesson 3 My first I/O
 
 My code:
+
 ```javascript
 var fs = require('fs');
 var fileName = process.argv[2];
@@ -54,6 +57,7 @@ console.log(contents.length - 1);
 ```
 
 Official code:
+
 ```javascript
 var fs = require('fs')
 
@@ -65,6 +69,7 @@ console.log(lines)
 ### lesson 4 My first async I/O
 
 My code:
+
 ```javascript
 var fs = require('fs');
 var filePath = process.argv[2];
@@ -79,6 +84,7 @@ fs.readFile(filePath, 'utf8', function (err, data) {
 ```
 
 Official code:
+
 ```javascript
 var fs = require('fs')
 var file = process.argv[2]
@@ -94,6 +100,7 @@ fs.readFile(file, function (err, contents) {
 ### lesson 5 Filtered LS
 
 My code:
+
 ```javascript
 var fs = require('fs');
 var files = process.argv[2];
@@ -112,6 +119,7 @@ fs.readdir(files, function (err, data) {
 ```
 
 Official code:
+
 ```javascript
 var fs = require('fs')
 var path = require('path')
@@ -175,6 +183,7 @@ module.exports = function (directory, extension, callback) {
 ```
 
 Official code:
+
 > program.js        
 
 ```javascript
@@ -216,6 +225,7 @@ module.exports = function (dir, filterStr, callback) {
 ### lesson 7 HTTP client
 
 My code:
+
 ```javascript
 var http = require('http');
 var url = process.argv[2];
@@ -229,6 +239,7 @@ http.get(url, function (res) {
 ```
 
 Official code:
+
 ```javascript
 var http = require('http')
 
@@ -242,6 +253,7 @@ http.get(process.argv[2], function (response) {
 ### lesson 8 HTTP collect
 
 My code:
+
 ```javascript
 var http = require('http');
 var info = [];
@@ -260,6 +272,7 @@ http.get(url, function (res) {
 ```
     
 Official code:
+
 ```javascript
 var http = require('http');
 var bl = require('bl');
@@ -277,7 +290,7 @@ http.get(process.argv[2], function (res) {
 ```
 `Juggling async`完成后的代码:
 
-```Javascript
+```javascript
 var http = require('http');
 var bl = require('bl');
 var results = [];

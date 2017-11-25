@@ -743,7 +743,7 @@ var typ = document.createAttribute("class");
 typ.value = "democlass";  
 h.attributes.setNamedItem(typ);  
 ```  
-> w3school js end ###  
+> w3school js end 
   
 ### JavaScript  
   
@@ -1191,4 +1191,4 @@ var take = undefined
 
 [知乎:如何用好谷歌搜索引擎](https://www.zhihu.com/question/20161362)  
 
-
+[Check This](https://www.webpagefx.com/tools/emoji-cheat-sheet/) to use emoji   
