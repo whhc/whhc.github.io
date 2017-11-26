@@ -265,6 +265,33 @@ use angular-cli with `ng g service services/dish`
 
 > `ng g module app-routing`  
 
+#### Angular Route: Parameters  
+
+- Paths specified as a URL  
+
+- Paths can also carry parameter values:
+
+  - e.g., `/dishdetail/42` where `42` is a route parameter  
+
+- Route parameters specified in the path definition as a token  
+
+  - e.g., path:`dishdetial/:id` where id is the token  
+
+- Route parameters can be specified using a link parameter array while specifying the link  
+
+  - e.g.,
+  
+  ```html
+  <a *ngFor="let dish of dishes" [routerLink]="['/dishdetail', dish.id]"></a>
+  ```
+
+- Can also be used within a method  
+
+  - e.g., `this.router.navigate(['/dishdetail', dish.id]);`   
+
+
+
+
 #### Additional Resources  
 
 [Angular Material Button](https://material.angular.io/components/component/button)  
