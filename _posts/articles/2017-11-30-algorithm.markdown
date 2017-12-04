@@ -25,21 +25,18 @@ What we can learn:
 
 #### Eight module     
 
-1. Algorithmic thinking  
+1. Algorithmic thinking: Peek finding  
 
-2. Peek finding  
+2. Sorting and trees: Event simulating   
 
-3. Sorting and trees  
+3. Hasing: Genome comparison  
 
-4. Event simulating   
+4. Numeurics: RSA encryption  
 
-5. Hasing  
+5. Graphs: Rubik's cube
 
-6. Genome comparison  
+6. Shortest path: Caltech  
 
-7. Numeurics  
+7. Dynamic programming: Image comprison  
 
-8. RSA encryption  
-
-
-
+8. Advanced topics
