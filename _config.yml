@@ -3,7 +3,8 @@
 title: Ashes
 locale: zh_cn
 description: Time always will be ashes
-logo: site-logo.png
+# logo: site-logo.png
+logo: bio-photo.jpg
 search: true
 url: 
 
