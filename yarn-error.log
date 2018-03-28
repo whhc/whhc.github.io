@@ -1,8 +1,8 @@
 Arguments: 
-  C:\Program Files\nodejs\node.exe C:\Users\gaoguixi\AppData\Roaming\npm\node_modules\yarn\bin\yarn.js
+  C:\Program Files\nodejs\node.exe C:\Users\gaoguixi\AppData\Roaming\npm\node_modules\yarn\bin\yarn.js get config registry
 
 PATH: 
-  C:\Program Files (x86)\Intel\Intel(R) Management Engine Components\iCLS\;C:\Program Files\Intel\Intel(R) Management Engine Components\iCLS\;C:\windows\system32;C:\windows;C:\windows\System32\Wbem;C:\windows\System32\WindowsPowerShell\v1.0\;C:\Program Files (x86)\NVIDIA Corporation\PhysX\Common;C:\Program Files (x86)\Intel\Intel(R) Management Engine Components\DAL;C:\Program Files\Intel\Intel(R) Management Engine Components\DAL;C:\Program Files (x86)\Intel\Intel(R) Management Engine Components\IPT;C:\Program Files\Intel\Intel(R) Management Engine Components\IPT;C:\Program Files\Git\cmd;C:\Program Files\nodejs\;C:\Users\gaoguixi\AppData\Local\Microsoft\WindowsApps;D:\coding\Microsoft VS Code\bin;C:\Users\gaoguixi\AppData\Roaming\npm;C:\Users\gaoguixi\AppData\Local\GitHubDesktop\bin
+  C:\Program Files (x86)\Intel\Intel(R) Management Engine Components\iCLS\;C:\Program Files\Intel\Intel(R) Management Engine Components\iCLS\;C:\windows\system32;C:\windows;C:\windows\System32\Wbem;C:\windows\System32\WindowsPowerShell\v1.0\;C:\Program Files (x86)\NVIDIA Corporation\PhysX\Common;C:\Program Files (x86)\Intel\Intel(R) Management Engine Components\DAL;C:\Program Files\Intel\Intel(R) Management Engine Components\DAL;C:\Program Files (x86)\Intel\Intel(R) Management Engine Components\IPT;C:\Program Files\Intel\Intel(R) Management Engine Components\IPT;C:\Program Files\Git\cmd;C:\Program Files\nodejs\;C:\Users\gaoguixi\AppData\Local\Programs\Python\Python36-32\Scripts\;C:\Users\gaoguixi\AppData\Local\Programs\Python\Python36-32\;C:\Users\gaoguixi\AppData\Local\Microsoft\WindowsApps;D:\coding\Microsoft VS Code\bin;C:\Users\gaoguixi\AppData\Roaming\npm;C:\Users\gaoguixi\AppData\Local\GitHubDesktop\bin
 
 Yarn version: 
   1.5.1
@@ -46,36 +46,14 @@ Lockfile:
   No lockfile
 
 Trace: 
-  Error: D:\projects\whhc.github.io\node_modules\optipng-bin: Command failed.
-  Exit code: 1
-  Command: C:\windows\system32\cmd.exe
-  Arguments: /d /s /c node index.js
-  Directory: D:\projects\whhc.github.io\node_modules\optipng-bin
-  Output:
-  path.js:28
-      throw new TypeError('Path must be a string. Received ' + inspect(path));
-      ^
-  
-  TypeError: Path must be a string. Received { url: 'https://raw.github.com/imagemin/optipng-bin/v0.3.11/vendor/win/optipng.exe',
-    name: 'optipng.exe',
-    os: 'win32' }
-      at assertPath (path.js:28:11)
-      at Object.basename (path.js:820:5)
-      at D:\projects\whhc.github.io\node_modules\download\index.js:35:43
-      at each (D:\projects\whhc.github.io\node_modules\each-async\each-async.js:63:4)
-      at module.exports (D:\projects\whhc.github.io\node_modules\download\index.js:33:5)
-      at D:\projects\whhc.github.io\node_modules\bin-wrapper\index.js:108:20
-      at D:\projects\whhc.github.io\node_modules\bin-wrapper\index.js:141:24
-      at D:\projects\whhc.github.io\node_modules\bin-check\index.js:30:20
-      at D:\projects\whhc.github.io\node_modules\executable\index.js:39:20
-      at FSReqWrap.oncomplete (fs.js:152:21)
-      at ProcessTermError.MessageError (C:\Users\gaoguixi\AppData\Roaming\npm\node_modules\yarn\lib\cli.js:186:110)
-      at new ProcessTermError (C:\Users\gaoguixi\AppData\Roaming\npm\node_modules\yarn\lib\cli.js:226:113)
-      at ChildProcess.<anonymous> (C:\Users\gaoguixi\AppData\Roaming\npm\node_modules\yarn\lib\cli.js:30281:17)
-      at emitTwo (events.js:126:13)
-      at ChildProcess.emit (events.js:214:7)
-      at maybeClose (internal/child_process.js:925:16)
-      at Socket.stream.socket.on (internal/child_process.js:346:11)
-      at emitOne (events.js:116:13)
-      at Socket.emit (events.js:211:7)
-      at Pipe._handle.close [as _onclose] (net.js:567:12)
+  Error: Command "get" not found.
+      at new MessageError (C:\Users\gaoguixi\AppData\Roaming\npm\node_modules\yarn\lib\cli.js:186:110)
+      at C:\Users\gaoguixi\AppData\Roaming\npm\node_modules\yarn\lib\cli.js:87307:17
+      at Generator.next (<anonymous>)
+      at step (C:\Users\gaoguixi\AppData\Roaming\npm\node_modules\yarn\lib\cli.js:98:30)
+      at C:\Users\gaoguixi\AppData\Roaming\npm\node_modules\yarn\lib\cli.js:116:14
+      at new Promise (<anonymous>)
+      at new F (C:\Users\gaoguixi\AppData\Roaming\npm\node_modules\yarn\lib\cli.js:23451:28)
+      at C:\Users\gaoguixi\AppData\Roaming\npm\node_modules\yarn\lib\cli.js:95:12
+      at runCommand (C:\Users\gaoguixi\AppData\Roaming\npm\node_modules\yarn\lib\cli.js:87312:22)
+      at Object.<anonymous> (C:\Users\gaoguixi\AppData\Roaming\npm\node_modules\yarn\lib\cli.js:87412:14)

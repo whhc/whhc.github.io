@@ -40,3 +40,4 @@ What we can learn:
 7. Dynamic programming: Image comprison  
 
 8. Advanced topics
+
