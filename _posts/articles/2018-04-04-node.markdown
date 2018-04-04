@@ -1,0 +1,55 @@
+---
+layout: post
+title: "Node server"
+date: 2018-04-04 21:00:00
+excerpt: "node"
+categories: articles
+tags: node
+---
+# HTTP
+
+## HTTP Response Codes(Main ones)
+
+| Code  | Meaning                    |
+| :---: | :------------------------: |
+| 200   | OK                         |
+| 201   | Created                    |
+| 301   | Moved Permanently          |
+| 304   | Not Modified               |
+| 400   | Bad Request                |
+| 401   | Unauthorized               |
+| 403   | Forbidden                  |
+| 404   | Not Found                  |
+| 422   | Unprocessable Entry        |
+| 500   | Internal Server Error      |
+| 505   | HTTP Version Not Supported |
+
+## Node HTTP Module
+
+```javascript
+const http = require('http')
+const server = http.createServer((req, res) => {
+    // req.headers, req.body
+    res.setHeader('Content-Type', 'text/html')
+    res.satatusCode = 200
+    res.write('Hello.')
+    res.end('<html><body><h1>Hello world.</h1></body></html>')
+})
+server.listen(port, ...)
+```
+
+## Node path Module
+
+```javascript
+const path = require('path')
+path.resolve(`./public${fileUrl}`)
+path.extname(filePath)
+```
+
+## Node fs Module
+
+```javascript
+const fs = require('fs')
+fs.exists(filePath, (exists) => {...})
+fs.createReadStream(filePath).pipe(res)
+```
