@@ -53,3 +53,22 @@ const fs = require('fs')
 fs.exists(filePath, (exists) => {...})
 fs.createReadStream(filePath).pipe(res)
 ```
+
+## Generated Application
+
++ app.js(starting application)
++ bin
+  + www
++ package.json
++ public(static resources)
+  + images
+  + javascripts
+  + stylesheets
+    + style.css
++ routes(application routes)
+  + index.js
+  + user.js
++ views(template engine templates)
+  + error.jade
+  + index.jade
+  + layout.jade
