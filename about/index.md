@@ -1,6 +1,6 @@
 ---
 layout: page
-title: You can not learn anything here
+title: Somethings should be here
 excerpt: "Somethings should be here"
 modified: 2014-08-08T19:44:38.564948-04:00
 # image:
@@ -9,4 +9,4 @@ modified: 2014-08-08T19:44:38.564948-04:00
 #   creditlink: http://wegraphics.net/downloads/free-ultimate-blurred-background-pack/
 ---
 
-### But soon ...
+### But not now ...
