@@ -1,0 +1,15 @@
+body {
+  max-width: 720px;
+  margin: 0 auto;
+  display: flex;
+  padding: 10px 0;
+  flex-direction: column;
+
+  @media screen and (max-width: 740px) {
+   padding: 10px; 
+  }
+
+  footer {
+    margin-top: auto;
+  }
+}
